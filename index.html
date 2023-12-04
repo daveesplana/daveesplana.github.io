@@ -145,6 +145,15 @@
 
         // Create snowflakes periodically
         setInterval(createSnowflake, 1000);
+
+        // Function to access the page
+        function accessPage() {
+            var filename = document.getElementById("filename").value;
+            if (filename.trim() !== "") {
+                // Redirect to the entered filename
+                window.location.href = filename;
+            }
+        }
     </script>
 </body>
 </html>
