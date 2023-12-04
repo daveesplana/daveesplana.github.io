@@ -1,72 +1,101 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Dave</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dave's Personal Webpage</title>
     <link rel="icon" href="https://avatars.githubusercontent.com/u/94614523?v=4" type="image/x-icon">
+    <!-- Add Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        .centered {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+        body {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
         }
-        .user-container {
-            display: flex;
-            align-items: center;
-        }
+
         .avatar {
             border-radius: 50%;
-            width: 300px;
-            height: 300px;
+            width: 200px;
+            height: 200px;
             margin-right: 20px;
             pointer-events: none;
         }
+
         .username {
-            font-family: Arial, sans-serif;
             margin-top: 10px;
+            margin-bottom: 5px;
         }
-        .mastodon-logo {
-            width: 30px;
-            height: 30px;
+
+        .social-icons {
+            margin-top: 20px;
+            padding: 10px;
+            border-bottom: 2px solid #ffffff;
         }
-        .github-logo {
-            width: 30px;
-            height: 30px;
+
+        .social-icons a {
+            display: inline-block;
+            margin: 0 10px; /* Added a little space between social icons */
+            color: #ffffff;
+            font-size: 40px;
+            text-decoration: none; /* Remove underline */
+            outline: none; /* Remove cursor highlight */
         }
-        .links {
-            text-align: center;
-            text-decoration: none;
+
+        .social-icons a:focus {
+            outline: none; /* Remove focus outline */
         }
-        .hr {
-            background-color: black;
+
+        .access-form {
+            margin-top: 30px; /* Increased margin-top for more space */
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
         }
-        body {
-            background-color: #3263c6;
-            margin: 0;
+
+        .access-form input {
+            width: 70%; /* Adjusted width for better layout */
+            padding: 10px;
+            box-sizing: border-box;
+            background-color: #333333; /* Dark background color */
+            color: #ffffff; /* Text color */
+            border: 1px solid #ffffff; /* White border */
+            border-radius: 10px; /* Added a curve to the input field */
+            margin-bottom: 10px; /* Increased margin-bottom for more space */
+        }
+
+        .access-form button {
+            width: 28%; /* Adjusted width for better layout */
+            background-color: #ffffff;
+            color: #1a1a1a;
+            padding: 12px; /* Increased padding for more space */
+            border: none;
+            cursor: pointer;
+            border-radius: 10px; /* Added a curve to the button */
+            margin-left: 2%; /* Adjusted margin for better layout */
         }
     </style>
 </head>
 <body>
-    <div class="centered">
-        <div class="user-container">
-            <img src="https://avatars.githubusercontent.com/u/94614523?v=4" alt="Dave" class="avatar">
-            <div>
-                <h1 class="username">@daveesplana</h1>
-                <a href="https://masto.nu/@dave" rel="me">
-                    <img src="https://joinmastodon.org/logos/logo-black.svg" alt="Mastodon" class="mastodon-logo">
-                </a>
-                <a href="https://github.com/daveesplana">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/GitHub_Invertocat_Logo.svg/640px-GitHub_Invertocat_Logo.svg.png" alt="GitHub" class="github-logo">
-                </a>
-                <br>
-            </div>
+    <h2>Welcome to my homepage!</h2>
+    <img src="https://avatars.githubusercontent.com/u/94614523?v=4" alt="Dave" class="avatar">
+    <div>
+        <h1 class="username">@daveesplana</h1>
+        <div class="social-icons">
+            <a href="https://masto.nu/@dave" rel="me" target="_blank">
+                <i class="fab fa-mastodon"></i>
+            </a>
+            <a href="https://github.com/daveesplana" target="_blank">
+                <i class="fab fa-github"></i>
+            </a>
         </div>
-    </div>
-    <hr class="hr">
-    <div class="links">
-        <a href="https://daveesplana.github.io/softwares.html">
-            <p>Softwares i use</p>
-        </a>
+        <div class="access-form">
+            <input type="text" id="filename" placeholder="example.html" />
+            <button onclick="accessPage()"><i class="fas fa-search"></i></button>
+        </div>
     </div>
 </body>
 </html>
