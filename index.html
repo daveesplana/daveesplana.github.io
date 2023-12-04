@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dave's Personal Webpage</title>
+    <title>Dave's Winter Wonderland</title>
     <link rel="icon" href="https://avatars.githubusercontent.com/u/94614523?v=4" type="image/x-icon">
     <!-- Add Font Awesome CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body {
-            background-color: #1a1a1a;
+            background-color: #0c3a46; /* Dark teal background */
             color: #ffffff;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             text-align: center;
             margin: 0;
             padding: 20px;
+            overflow: hidden; /* Hide overflow to prevent horizontal scrollbar due to snowflakes */
         }
 
         .avatar {
@@ -28,6 +29,8 @@
         .username {
             margin-top: 10px;
             margin-bottom: 5px;
+            font-size: 24px; /* Slightly larger font */
+            color: #ffd700; /* Gold color */
         }
 
         .social-icons {
@@ -49,18 +52,23 @@
             outline: none; /* Remove focus outline */
         }
 
-        .access-form {
+        .access-form-container {
             margin-top: 30px; /* Increased margin-top for more space */
             max-width: 400px;
             margin-left: auto;
             margin-right: auto;
         }
 
+        .access-form {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
         .access-form input {
             width: 70%; /* Adjusted width for better layout */
             padding: 10px;
             box-sizing: border-box;
-            background-color: #333333; /* Dark background color */
+            background-color: #205b67; /* Teal background */
             color: #ffffff; /* Text color */
             border: 1px solid #ffffff; /* White border */
             border-radius: 10px; /* Added a curve to the input field */
@@ -77,10 +85,24 @@
             border-radius: 10px; /* Added a curve to the button */
             margin-left: 2%; /* Adjusted margin for better layout */
         }
+
+        .snowflake {
+            position: absolute;
+            font-size: 20px;
+            color: #ffffff;
+            pointer-events: none;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
     </style>
 </head>
 <body>
-    <h2>Welcome to my homepage!</h2>
+    <h2>Merry Christmas! 🎄</h2>
     <img src="https://avatars.githubusercontent.com/u/94614523?v=4" alt="Dave" class="avatar">
     <div>
         <h1 class="username">@daveesplana</h1>
@@ -92,20 +114,37 @@
                 <i class="fab fa-github"></i>
             </a>
         </div>
-        <div class="access-form">
-            <input type="text" id="filename" placeholder="example.html" />
-            <button onclick="accessPage()"><i class="fas fa-search"></i></button>
+        <div class="access-form-container">
+            <div class="access-form">
+                <input type="text" id="filename" placeholder="example.html" />
+                <button onclick="accessPage()"><i class="fas fa-search"></i></button>
+            </div>
         </div>
     </div>
 
+    <!-- Script for snowfall effect -->
     <script>
-        function accessPage() {
-            var filename = document.getElementById("filename").value;
-            if (filename.trim() !== "") {
-                // Redirect to the entered filename
-                window.location.href = filename;
-            }
+        // Function to create a snowflake
+        function createSnowflake() {
+            const snowflake = document.createElement("div");
+            snowflake.innerHTML = "❄";
+            snowflake.className = "snowflake";
+            document.body.appendChild(snowflake);
+
+            const startLeft = Math.random() * window.innerWidth;
+            const duration = Math.random() * 5 + 5; // Random duration between 5 and 10 seconds
+
+            snowflake.style.left = startLeft + "px";
+            snowflake.style.animationDuration = duration + "s";
+
+            // Remove snowflake after animation completes
+            snowflake.addEventListener("animationiteration", () => {
+                document.body.removeChild(snowflake);
+            });
         }
+
+        // Create snowflakes periodically
+        setInterval(createSnowflake, 1000);
     </script>
 </body>
 </html>
